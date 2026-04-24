@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // ── personal info ──
 const MY_INFO = Object.freeze({
-  uid: "abhinavsingh_24042004",
+  uid: "abhinavsingh_27062004",
   mail: "as9346@srm.edu.in",
   roll: "RA2311003030135",
 });

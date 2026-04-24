@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BFHL — tree goes brrr 🌳</title>
+  <meta name="description" content="Drop your edges, get your trees. A hierarchy resolver that slaps." />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- mesh gradient bg -->
+  <div class="mesh" aria-hidden="true"></div>
+
+  <div class="container">
+
+    <!-- nav pill -->
+    <nav class="topbar">
+      <span class="logo">⚡ bfhl</span>
+      <a href="https://github.com" target="_blank" class="gh-link">GitHub ↗</a>
+    </nav>
+
+    <!-- hero -->
+    <header class="hero">
+      <div class="hero-emoji">🌲</div>
+      <h1>drop edges,<br /><span class="pop">get trees</span></h1>
+      <p class="subtitle">paste your <kbd>A→B</kbd> edges below and watch the magic happen ✨</p>
+    </header>
+
+    <!-- input card -->
+    <section class="input-card" id="input-card">
+      <div class="input-top">
+        <span class="label-chip">📝 edges</span>
+        <button id="btn-try" class="pill-btn" type="button">try example 🧪</button>
+      </div>
+      <textarea id="edge-input" rows="3" spellcheck="false"
+        placeholder="A->B, A->C, B->D, X->Y, Y->Z, Z->X ..."></textarea>
+      <button id="btn-go" class="go-btn" type="button">
+        <span id="go-text">Analyze 🚀</span>
+        <span id="go-spin" class="spin" hidden></span>
+      </button>
+    </section>
+
+    <!-- error -->
+    <div id="err" class="err-bar" hidden>
+      <span>😵</span>
+      <span id="err-msg"></span>
+    </div>
+
+    <!-- results -->
+    <div id="results" hidden>
+
+      <!-- stat pills -->
+      <div class="stat-row">
+        <div class="stat" id="s-trees">
+          <span class="stat-emoji">🌳</span>
+          <span class="stat-val" id="v-trees">0</span>
+          <span class="stat-lbl">trees</span>
+        </div>
+        <div class="stat" id="s-cycles">
+          <span class="stat-emoji">🔄</span>
+          <span class="stat-val" id="v-cycles">0</span>
+          <span class="stat-lbl">cycles</span>
+        </div>
+        <div class="stat" id="s-big">
+          <span class="stat-emoji">👑</span>
+          <span class="stat-val" id="v-big">—</span>
+          <span class="stat-lbl">biggest root</span>
+        </div>
+      </div>
+
+      <!-- hierarchy cards -->
+      <section id="cards-section">
+        <h2 class="section-title">🗂️ the forest</h2>
+        <div id="cards-grid" class="cards-grid"></div>
+      </section>
+
+      <!-- issues row -->
+      <div class="issues-row">
+        <div class="issue-box">
+          <h3>🚫 invalid</h3>
+          <div id="inv" class="tag-list"></div>
+        </div>
+        <div class="issue-box">
+          <h3>♻️ duplicates</h3>
+          <div id="dup" class="tag-list"></div>
+        </div>
+      </div>
+
+      <!-- json toggle -->
+      <details class="json-box">
+        <summary>🧾 raw json <span class="hint">(click to expand)</span></summary>
+        <pre id="json-out"></pre>
+      </details>
+    </div>
+
+    <footer class="foot">
+      made with 💜 for <strong>Bajaj Finserv Health</strong>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
